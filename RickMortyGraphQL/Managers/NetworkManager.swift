@@ -15,7 +15,7 @@ enum SerializationError: Error {
 
 class Network {
     static let shared = Network()
-    var apollo = ApolloClient(url: URL(string: "https://rickandmortyapi.com/graphql/")!)
+    var apollo = ApolloClient(url: URL(string: Constants.baseURL)!)
 }
 
 class NetworkManager: NSObject {

@@ -17,6 +17,14 @@
 		FF35FC58297A74DA00196881 /* CharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF35FC57297A74DA00196881 /* CharacterDetail.swift */; };
 		FF5B7B89297934900049F5D6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF5B7B88297934900049F5D6 /* Kingfisher */; };
 		FF67F1DB297A8E4E002B606B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1DA297A8E4E002B606B /* Log.swift */; };
+		FF67F1DE297AE2BA002B606B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FF67F1DD297AE2BA002B606B /* Realm */; };
+		FF67F1E0297AE2BA002B606B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF67F1DF297AE2BA002B606B /* RealmSwift */; };
+		FF67F1E2297AE306002B606B /* CharacterRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1E1297AE306002B606B /* CharacterRealm.swift */; };
+		FF67F1E5297D5BB6002B606B /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1E4297D5BB6002B606B /* RealmService.swift */; };
+		FF67F1E7297D5BDC002B606B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1E6297D5BDC002B606B /* Constants.swift */; };
+		FF67F1EA297D5DC8002B606B /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1E9297D5DC8002B606B /* EncodableExtension.swift */; };
+		FF67F1EC297D5EAD002B606B /* ErrorLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1EB297D5EAD002B606B /* ErrorLogging.swift */; };
+		FF67F1EF297D9240002B606B /* ObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1EE297D9240002B606B /* ObjectExtension.swift */; };
 		FF877FBE29795C7900029787 /* query.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FF877FBD29795C7900029787 /* query.graphql */; };
 		FF877FCB297964FA00029787 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = FF877FCA297964FA00029787 /* schema.json */; };
 		FFCA2DD0291E643F00ED877E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA2DCF291E643F00ED877E /* AppDelegate.swift */; };
@@ -56,6 +64,12 @@
 		FF35FC522979746E00196881 /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		FF35FC57297A74DA00196881 /* CharacterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetail.swift; sourceTree = "<group>"; };
 		FF67F1DA297A8E4E002B606B /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		FF67F1E1297AE306002B606B /* CharacterRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRealm.swift; sourceTree = "<group>"; };
+		FF67F1E4297D5BB6002B606B /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		FF67F1E6297D5BDC002B606B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FF67F1E9297D5DC8002B606B /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
+		FF67F1EB297D5EAD002B606B /* ErrorLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLogging.swift; sourceTree = "<group>"; };
+		FF67F1EE297D9240002B606B /* ObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectExtension.swift; sourceTree = "<group>"; };
 		FF877FBD29795C7900029787 /* query.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = query.graphql; sourceTree = "<group>"; };
 		FF877FCA297964FA00029787 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = SOURCE_ROOT; };
 		FFCA2DCC291E643F00ED877E /* RickMortyGraphQL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickMortyGraphQL.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF67F1E0297AE2BA002B606B /* RealmSwift in Frameworks */,
+				FF67F1DE297AE2BA002B606B /* Realm in Frameworks */,
 				FF5B7B89297934900049F5D6 /* Kingfisher in Frameworks */,
 				FF35FC4529796E5A00196881 /* Apollo in Frameworks */,
 			);
@@ -110,6 +126,32 @@
 				FF35FC502979746E00196881 /* Location.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FF67F1E3297D5B86002B606B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FF35FC4A2979737300196881 /* NetworkManager.swift */,
+				FF67F1E4297D5BB6002B606B /* RealmService.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		FF67F1E8297D5DB3002B606B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF67F1E9297D5DC8002B606B /* EncodableExtension.swift */,
+				FF67F1EE297D9240002B606B /* ObjectExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FF67F1ED297D6D5E002B606B /* RealmModel */ = {
+			isa = PBXGroup;
+			children = (
+				FF67F1E1297AE306002B606B /* CharacterRealm.swift */,
+			);
+			path = RealmModel;
 			sourceTree = "<group>";
 		};
 		FF877FBC29795C6100029787 /* GraphQL */ = {
@@ -147,9 +189,13 @@
 				FFCA2DCF291E643F00ED877E /* AppDelegate.swift */,
 				FFCA2DD1291E643F00ED877E /* SceneDelegate.swift */,
 				FF67F1DA297A8E4E002B606B /* Log.swift */,
-				FF35FC4A2979737300196881 /* NetworkManager.swift */,
+				FF67F1EB297D5EAD002B606B /* ErrorLogging.swift */,
+				FF67F1E8297D5DB3002B606B /* Extensions */,
+				FF67F1E6297D5BDC002B606B /* Constants.swift */,
+				FF67F1E3297D5B86002B606B /* Managers */,
 				FF877FBC29795C6100029787 /* GraphQL */,
 				FFCA2DD3291E643F00ED877E /* ViewController.swift */,
+				FF67F1ED297D6D5E002B606B /* RealmModel */,
 				FF35FC4C2979742B00196881 /* Model */,
 				FFCA2DD5291E643F00ED877E /* Main.storyboard */,
 				FF877FCA297964FA00029787 /* schema.json */,
@@ -197,6 +243,8 @@
 			packageProductDependencies = (
 				FF5B7B88297934900049F5D6 /* Kingfisher */,
 				FF35FC4429796E5A00196881 /* Apollo */,
+				FF67F1DD297AE2BA002B606B /* Realm */,
+				FF67F1DF297AE2BA002B606B /* RealmSwift */,
 			);
 			productName = SpaceXApp;
 			productReference = FFCA2DCC291E643F00ED877E /* RickMortyGraphQL.app */;
@@ -273,6 +321,7 @@
 			packageReferences = (
 				FF5B7B87297934900049F5D6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FF35FC4329796E5A00196881 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				FF67F1DC297AE2BA002B606B /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = FFCA2DCD291E643F00ED877E /* Products */;
 			projectDirPath = "";
@@ -340,16 +389,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF67F1E5297D5BB6002B606B /* RealmService.swift in Sources */,
 				FFCA2DD4291E643F00ED877E /* ViewController.swift in Sources */,
+				FF67F1EF297D9240002B606B /* ObjectExtension.swift in Sources */,
 				FFCA2DD0291E643F00ED877E /* AppDelegate.swift in Sources */,
 				FF67F1DB297A8E4E002B606B /* Log.swift in Sources */,
 				FF35FC58297A74DA00196881 /* CharacterDetail.swift in Sources */,
 				FF35FC4B2979737300196881 /* NetworkManager.swift in Sources */,
+				FF67F1E2297AE306002B606B /* CharacterRealm.swift in Sources */,
 				FF35FC492979706B00196881 /* API.swift in Sources */,
 				FF35FC532979746E00196881 /* ImageOfCharacters.swift in Sources */,
 				FFCA2DD2291E643F00ED877E /* SceneDelegate.swift in Sources */,
 				FF35FC542979746E00196881 /* Location.swift in Sources */,
+				FF67F1E7297D5BDC002B606B /* Constants.swift in Sources */,
 				FF35FC562979746E00196881 /* Episode.swift in Sources */,
+				FF67F1EA297D5DC8002B606B /* EncodableExtension.swift in Sources */,
+				FF67F1EC297D5EAD002B606B /* ErrorLogging.swift in Sources */,
 				FF35FC552979746E00196881 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -710,6 +765,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		FF67F1DC297AE2BA002B606B /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.34.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -722,6 +785,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF5B7B87297934900049F5D6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		FF67F1DD297AE2BA002B606B /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF67F1DC297AE2BA002B606B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		FF67F1DF297AE2BA002B606B /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF67F1DC297AE2BA002B606B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

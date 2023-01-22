@@ -2,28 +2,14 @@
 //  Character.swift
 //  GraphQLApp
 //
-//  Created by Akakce on 19.08.2021.
+//  Created by Hakan on 19.08.2021.
 //
 
 import Foundation
 
-enum ErrorTypes {
-    case attributeError(String)
-    
-    var description: String {
-        switch self {
-            case .attributeError(let att): return "\(self.value) attribute could not found"
-        }
-    }
-    
-    var value: String {
-        switch self {
-            case .attributeError(let value): return value
-        }
-    }
-}
 
-struct Character: Decodable {
+
+struct Character: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case id, name, image
