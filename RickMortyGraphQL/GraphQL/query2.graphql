@@ -1,0 +1,10 @@
+query sw{
+  episodesByIds(ids: [1, 2, 3]) {
+    name
+    characters {
+      name
+      status
+      image
+    }
+  }
+}

@@ -25,3 +25,24 @@ enum ErrorTypes {
         }
     }
 }
+
+enum SerializationError: Error {
+    case missing(String)
+    case invalid(String, Any)
+}
+
+enum HTTPError: Equatable {
+    case statusCode(Int)
+    case invalidResponse
+}
+
+extension HTTPError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .invalidResponse:
+            return NSLocalizedString("Error: 401", comment: "401")
+        case .statusCode(let int):
+            return String(int)
+        }
+    }
+}

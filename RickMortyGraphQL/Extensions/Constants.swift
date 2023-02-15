@@ -11,3 +11,8 @@ import Foundation
 enum Constants {
     static let baseURL = "https://rickandmortyapi.com/graphql/"
 }
+
+
+enum ViewConstants {
+    static let mainPageHeaderReuse = "HeaderView"
+}

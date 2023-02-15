@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "apollocombine",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/joel-perry/ApolloCombine",
+      "state" : {
+        "revision" : "581370e8d0204b7ec0df115bc1e79986fa113494",
+        "version" : "0.5.0"
+      }
+    },
+    {
       "identity" : "kingfisher",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher.git",

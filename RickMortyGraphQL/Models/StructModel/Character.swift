@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import Apollo
+import Combine
 
+protocol BaseModelProtocol {
+    static func decodeFromJsonValue<T: Codable>(characterData: JSONValue?) -> T?
+}
 
-
-struct Character: Codable {
+struct Character: BaseModelProtocol, Codable {
     
     private enum CodingKeys: String, CodingKey {
         case id, name, image
@@ -22,10 +26,11 @@ struct Character: Codable {
     init(from decoder: Decoder) {
         do {
             let container = try decoder.container(keyedBy: CodingKeys.self)
+            
             do {
                 self.id = try container.decode(String.self, forKey: .id)
             } catch {
-                print(Log.info(ErrorTypes.attributeError("image").description))
+                print(Log.info(ErrorTypes.attributeError("id").description))
             }
             do {
                 self.name = try container.decode(String.self, forKey: .name)
@@ -39,6 +44,21 @@ struct Character: Codable {
             }
         } catch {
             print(Log.warning("Decoding Error"))
+        }
+    }
+    
+    
+    static func decodeFromJsonValue<T>(characterData: Apollo.JSONValue?) -> T? where T : Decodable, T : Encodable {
+        do {
+            guard let characterData = characterData else { return nil }
+            let json = try JSONSerialization.data(withJSONObject: characterData)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .useDefaultKeys
+            let obj = try decoder.decode(T.self, from: json)
+            return obj
+        } catch let err {
+            print(Log.error("Convert Error \(err)"))
+            return nil
         }
     }
 }
