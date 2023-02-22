@@ -14,6 +14,7 @@ enum CharacterDataState {
     case loading
     case viewModelData([CharacterCellViewModel])
     case error(CharactersDataError)
+    case locationViewModelData([LocationCellViewModel])
     
     // MARK: - Properties
     
@@ -22,7 +23,7 @@ enum CharacterDataState {
             case .loading:
                 return true
             case .error,
-                    .viewModelData:
+                    .viewModelData, .locationViewModelData:
                 return false
         }
     }
@@ -32,7 +33,7 @@ enum CharacterDataState {
             case .viewModelData(let data):
                 return data
             case .error,
-                    .loading:
+                    .loading, .locationViewModelData:
                 return nil
         }
     }
@@ -42,7 +43,16 @@ enum CharacterDataState {
             case .error(let characterDataError):
                 return characterDataError
             case .loading,
-                .viewModelData:
+                    .viewModelData, .locationViewModelData:
+                return nil
+        }
+    }
+    
+    var locationViewModelData: [LocationCellViewModel]? {
+        switch self {
+            case .locationViewModelData(let data):
+                return data
+            case .loading, .viewModelData, .error:
                 return nil
         }
     }
@@ -54,5 +64,6 @@ enum CharactersDataError: Error {
     // MARK: - Cases
     case failedRequest
     case invalidResponse
+    case timeout
     
 }

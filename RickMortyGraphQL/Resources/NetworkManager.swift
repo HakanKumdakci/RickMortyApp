@@ -37,7 +37,8 @@ extension Publisher where Failure == Never {
 
 
 protocol BaseNetworkInterface{
-    func getCharacters() -> Publishers.ApolloFetch<GetCharactersQuery>
+    func getCharacters(pageNumber: Int) -> Publishers.ApolloFetch<GetCharactersQuery>
+    func getLocations(pageNumber: Int) -> Publishers.ApolloFetch<GetLocationsQuery>
 }
 
 class NetworkManager: BaseNetworkInterface {
@@ -48,8 +49,12 @@ class NetworkManager: BaseNetworkInterface {
         self.client = client
     }
     
-    func getCharacters() -> Publishers.ApolloFetch<GetCharactersQuery> {
-        return self.client.fetchPublisher(query: GetCharactersQuery(page: 1))
+    func getCharacters(pageNumber: Int) -> Publishers.ApolloFetch<GetCharactersQuery> {
+        return self.client.fetchPublisher(query: GetCharactersQuery(page: pageNumber))
+    }
+    
+    func getLocations(pageNumber: Int) -> Publishers.ApolloFetch<GetLocationsQuery> {
+        return self.client.fetchPublisher(query: GetLocationsQuery(page: pageNumber))
     }
     
     

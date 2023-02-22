@@ -7,18 +7,27 @@
 
 import Foundation
 
-protocol MainPageCoordinatorProtocol {
-    func navigateToCharacterDetail(data: Character)
-}
-
 
 class MainPageCoordinator: Coordinator {
     
 }
 
 extension MainPageCoordinator: MainPageCoordinatorProtocol {
+    
     func navigateToCharacterDetail(data: Character) {
-        let vc = CharacterDetailBuilder.create(navigation: self.navigationController, data: data)
-        navigationController.pushViewController(vc, animated: true)
+        
+    }
+    
+    
+    func navigate(_ output: MainPageCoordinatorOutput) {
+        switch output {
+            case .toCharacterDetail(let data):
+                let vc = CharacterDetailBuilder.create(navigation: self.navigationController, data: data)
+                navigationController.pushViewController(vc, animated: true)
+            case .toLocation(let data):
+//                let vc = CharacterDetailBuilder.create(navigation: self.navigationController, data: data)
+//                navigationController.pushViewController(vc, animated: true)
+                return
+        }
     }
 }

@@ -12,22 +12,22 @@ class CharacterCellViewModel {
     
     private var data: Character
     
-    private let weatherDataStateSubject = PassthroughSubject<CharacterCellDataState, Never>()
+    private let characterDataStateSubject = PassthroughSubject<CharacterCellDataState, Never>()
     
-    private var weatherDataPublisher: AnyPublisher<Character, Never> {
-        weatherDataStateSubject
+    private var characterDataPublisher: AnyPublisher<Character, Never> {
+        characterDataStateSubject
             .compactMap { $0.characterData }
             .eraseToAnyPublisher()
     }
     
     public var namePublisher: AnyPublisher<String?, Never> {
-        return weatherDataPublisher
+        return characterDataPublisher
             .map { $0.name }
             .eraseToAnyPublisher()
     }
     
     public var imageUrlPublisher: AnyPublisher<String?, Never> {
-        return weatherDataPublisher
+        return characterDataPublisher
             .map { $0.image }
             .eraseToAnyPublisher()
     }
@@ -37,7 +37,7 @@ class CharacterCellViewModel {
     }
     
     func requestForData() {
-        self.weatherDataStateSubject.send(.data(data))
+        self.characterDataStateSubject.send(.data(data))
     }
     
 }

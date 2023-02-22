@@ -19,7 +19,6 @@
 		FF67F1DB297A8E4E002B606B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1DA297A8E4E002B606B /* Log.swift */; };
 		FF67F1DE297AE2BA002B606B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FF67F1DD297AE2BA002B606B /* Realm */; };
 		FF67F1E0297AE2BA002B606B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF67F1DF297AE2BA002B606B /* RealmSwift */; };
-		FF67F1E2297AE306002B606B /* CharacterRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1E1297AE306002B606B /* CharacterRealm.swift */; };
 		FF67F1E5297D5BB6002B606B /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1E4297D5BB6002B606B /* RealmService.swift */; };
 		FF67F1E7297D5BDC002B606B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1E6297D5BDC002B606B /* Constants.swift */; };
 		FF67F1EA297D5DC8002B606B /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF67F1E9297D5DC8002B606B /* EncodableExtension.swift */; };
@@ -51,6 +50,10 @@
 		FFCA2DE7291E644200ED877E /* SpaceXAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA2DE6291E644200ED877E /* SpaceXAppTests.swift */; };
 		FFCA2DF1291E644200ED877E /* SpaceXAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA2DF0291E644200ED877E /* SpaceXAppUITests.swift */; };
 		FFCA2DF3291E644200ED877E /* SpaceXAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA2DF2291E644200ED877E /* SpaceXAppUITestsLaunchTests.swift */; };
+		FFD6BE6729A3A3220050E4D0 /* getLocationsQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FFD6BE6629A3A3220050E4D0 /* getLocationsQuery.graphql */; };
+		FFD6BE8129A4DAFE0050E4D0 /* LocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD6BE8029A4DAFE0050E4D0 /* LocationCollectionViewCell.swift */; };
+		FFD6BE8329A4DB340050E4D0 /* LocationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD6BE8229A4DB340050E4D0 /* LocationCellViewModel.swift */; };
+		FFD6BE8529A4E3FD0050E4D0 /* MainPageContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD6BE8429A4E3FD0050E4D0 /* MainPageContracts.swift */; };
 		FFD8602B299CB3DC0087CE66 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD86025299CB3DC0087CE66 /* CharacterDetailViewController.swift */; };
 		FFD86030299CB3DC0087CE66 /* CharacterDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8602A299CB3DC0087CE66 /* CharacterDetailBuilder.swift */; };
 		FFD86032299CB5E70087CE66 /* CharacterDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD86031299CB5E70087CE66 /* CharacterDetailCoordinator.swift */; };
@@ -86,7 +89,6 @@
 		FF5ED90029997E0500804CA5 /* CharacterCellDataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellDataState.swift; sourceTree = "<group>"; };
 		FF5ED905299B6A6C00804CA5 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		FF67F1DA297A8E4E002B606B /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		FF67F1E1297AE306002B606B /* CharacterRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRealm.swift; sourceTree = "<group>"; };
 		FF67F1E4297D5BB6002B606B /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		FF67F1E6297D5BDC002B606B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FF67F1E9297D5DC8002B606B /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
@@ -97,9 +99,9 @@
 		FF7F01DE2983ED8800080CA2 /* MainPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageCoordinator.swift; sourceTree = "<group>"; };
 		FF7F01E02983F8D200080CA2 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF7F01E22983F97F00080CA2 /* CharacterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellViewModel.swift; sourceTree = "<group>"; };
-		FF7F01E42983FAFF00080CA2 /* SplashCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashCoordinator.swift; path = RickMortyGraphQL/Scenes/SplashPage/SplashCoordinator.swift; sourceTree = SOURCE_ROOT; };
-		FF7F01E52983FAFF00080CA2 /* SplashBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashBuilder.swift; path = RickMortyGraphQL/Scenes/SplashPage/SplashBuilder.swift; sourceTree = SOURCE_ROOT; };
-		FF7F01E62983FAFF00080CA2 /* SplashController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashController.swift; path = RickMortyGraphQL/Scenes/SplashPage/SplashController.swift; sourceTree = SOURCE_ROOT; };
+		FF7F01E42983FAFF00080CA2 /* SplashCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashCoordinator.swift; path = RickMortyGraphQL/Scenes/CharactersPage/SplashPage/SplashCoordinator.swift; sourceTree = SOURCE_ROOT; };
+		FF7F01E52983FAFF00080CA2 /* SplashBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashBuilder.swift; path = RickMortyGraphQL/Scenes/CharactersPage/SplashPage/SplashBuilder.swift; sourceTree = SOURCE_ROOT; };
+		FF7F01E62983FAFF00080CA2 /* SplashController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashController.swift; path = RickMortyGraphQL/Scenes/CharactersPage/SplashPage/SplashController.swift; sourceTree = SOURCE_ROOT; };
 		FF7F01EA2983FB3900080CA2 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		FF877FBD29795C7900029787 /* query.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = query.graphql; sourceTree = "<group>"; };
 		FF877FCA297964FA00029787 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = SOURCE_ROOT; };
@@ -120,6 +122,10 @@
 		FFCA2DEC291E644200ED877E /* RickMortyGraphQLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickMortyGraphQLUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCA2DF0291E644200ED877E /* SpaceXAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAppUITests.swift; sourceTree = "<group>"; };
 		FFCA2DF2291E644200ED877E /* SpaceXAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FFD6BE6629A3A3220050E4D0 /* getLocationsQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = getLocationsQuery.graphql; sourceTree = "<group>"; };
+		FFD6BE8029A4DAFE0050E4D0 /* LocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFD6BE8229A4DB340050E4D0 /* LocationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellViewModel.swift; sourceTree = "<group>"; };
+		FFD6BE8429A4E3FD0050E4D0 /* MainPageContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageContracts.swift; sourceTree = "<group>"; };
 		FFD86025299CB3DC0087CE66 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		FFD8602A299CB3DC0087CE66 /* CharacterDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailBuilder.swift; sourceTree = "<group>"; };
 		FFD86031299CB5E70087CE66 /* CharacterDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailCoordinator.swift; sourceTree = "<group>"; };
@@ -198,24 +204,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FF67F1ED297D6D5E002B606B /* RealmModel */ = {
-			isa = PBXGroup;
-			children = (
-				FF67F1E1297AE306002B606B /* CharacterRealm.swift */,
-			);
-			name = RealmModel;
-			path = "../New Group3/RealmModel";
-			sourceTree = "<group>";
-		};
 		FF7E1460297E586600FFC04B /* CharactersPage */ = {
 			isa = PBXGroup;
 			children = (
 				FF5ED902299A58CB00804CA5 /* View */,
 				FF7F01EA2983FB3900080CA2 /* MainPageViewController.swift */,
 				FF7E149B297EB02100FFC04B /* MainPageViewModel.swift */,
+				FFD6BE8429A4E3FD0050E4D0 /* MainPageContracts.swift */,
 				FF898992297FD23E00CA0291 /* MainPageBuilder.swift */,
 				FFEB66762982590300D0E5C2 /* MainPageDataState.swift */,
 				FF7F01DE2983ED8800080CA2 /* MainPageCoordinator.swift */,
+				FFD6BE8629A5F0EA0050E4D0 /* EpisodeCell */,
+				FFD6BE6829A3A88F0050E4D0 /* LocationCell */,
 				FF7F01DD2983ED3000080CA2 /* CharacterCell */,
 			);
 			path = CharactersPage;
@@ -224,9 +224,9 @@
 		FF7F01D72983EA6100080CA2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FFD6BE8729A5F1220050E4D0 /* SplashPage */,
 				FFD86024299CB35B0087CE66 /* CharacterDetail */,
 				FF7E1460297E586600FFC04B /* CharactersPage */,
-				FFA2DE5E298022B700D6B013 /* SplashPage */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -260,7 +260,6 @@
 		FF7F01DC2983EBBD00080CA2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FF67F1ED297D6D5E002B606B /* RealmModel */,
 				FF35FC4C2979742B00196881 /* StructModel */,
 			);
 			path = Models;
@@ -283,19 +282,9 @@
 				FFEB667229814F2A00D0E5C2 /* getCharactersQuery.graphql */,
 				FF877FBD29795C7900029787 /* query.graphql */,
 				FFA2DE5B2980025000D6B013 /* query2.graphql */,
+				FFD6BE6629A3A3220050E4D0 /* getLocationsQuery.graphql */,
 			);
 			path = GraphQL;
-			sourceTree = "<group>";
-		};
-		FFA2DE5E298022B700D6B013 /* SplashPage */ = {
-			isa = PBXGroup;
-			children = (
-				FF7F01E52983FAFF00080CA2 /* SplashBuilder.swift */,
-				FF7F01E62983FAFF00080CA2 /* SplashController.swift */,
-				FF7F01E42983FAFF00080CA2 /* SplashCoordinator.swift */,
-			);
-			name = SplashPage;
-			path = "../New Group1/SplashPage";
 			sourceTree = "<group>";
 		};
 		FFA2DE61298022F600D6B013 /* RootClasses */ = {
@@ -362,6 +351,33 @@
 				FFCA2DF2291E644200ED877E /* SpaceXAppUITestsLaunchTests.swift */,
 			);
 			path = "RickMortyGraphQL UITests";
+			sourceTree = "<group>";
+		};
+		FFD6BE6829A3A88F0050E4D0 /* LocationCell */ = {
+			isa = PBXGroup;
+			children = (
+				FFD6BE8029A4DAFE0050E4D0 /* LocationCollectionViewCell.swift */,
+				FFD6BE8229A4DB340050E4D0 /* LocationCellViewModel.swift */,
+			);
+			path = LocationCell;
+			sourceTree = "<group>";
+		};
+		FFD6BE8629A5F0EA0050E4D0 /* EpisodeCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EpisodeCell;
+			sourceTree = "<group>";
+		};
+		FFD6BE8729A5F1220050E4D0 /* SplashPage */ = {
+			isa = PBXGroup;
+			children = (
+				FF7F01E52983FAFF00080CA2 /* SplashBuilder.swift */,
+				FF7F01E62983FAFF00080CA2 /* SplashController.swift */,
+				FF7F01E42983FAFF00080CA2 /* SplashCoordinator.swift */,
+			);
+			name = SplashPage;
+			path = CharactersPage/SplashPage;
 			sourceTree = "<group>";
 		};
 		FFD86024299CB35B0087CE66 /* CharacterDetail */ = {
@@ -493,6 +509,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD6BE6729A3A3220050E4D0 /* getLocationsQuery.graphql in Resources */,
 				FF877FBE29795C7900029787 /* query.graphql in Resources */,
 				FF877FCB297964FA00029787 /* schema.json in Resources */,
 				FFCA2DDC291E644200ED877E /* LaunchScreen.storyboard in Resources */,
@@ -556,11 +573,12 @@
 				FF5ED90129997E0500804CA5 /* CharacterCellDataState.swift in Sources */,
 				FF67F1DB297A8E4E002B606B /* Log.swift in Sources */,
 				FF35FC58297A74DA00196881 /* CharacterDetail.swift in Sources */,
+				FFD6BE8329A4DB340050E4D0 /* LocationCellViewModel.swift in Sources */,
 				FF35FC4B2979737300196881 /* NetworkManager.swift in Sources */,
+				FFD6BE8129A4DAFE0050E4D0 /* LocationCollectionViewCell.swift in Sources */,
 				FFD86032299CB5E70087CE66 /* CharacterDetailCoordinator.swift in Sources */,
 				FF7F01EB2983FB3900080CA2 /* MainPageViewController.swift in Sources */,
 				FFD86030299CB3DC0087CE66 /* CharacterDetailBuilder.swift in Sources */,
-				FF67F1E2297AE306002B606B /* CharacterRealm.swift in Sources */,
 				FF7F01E82983FAFF00080CA2 /* SplashBuilder.swift in Sources */,
 				FF7F01DF2983ED8800080CA2 /* MainPageCoordinator.swift in Sources */,
 				FF35FC532979746E00196881 /* ImageOfCharacters.swift in Sources */,
@@ -577,6 +595,7 @@
 				FF35FC562979746E00196881 /* Episode.swift in Sources */,
 				FF67F1EA297D5DC8002B606B /* EncodableExtension.swift in Sources */,
 				FFA2DE672981041300D6B013 /* UIViewExtensions.swift in Sources */,
+				FFD6BE8529A4E3FD0050E4D0 /* MainPageContracts.swift in Sources */,
 				FFD86034299CB63D0087CE66 /* CharacterDetailViewModel.swift in Sources */,
 				FF67F1EC297D5EAD002B606B /* ErrorLogging.swift in Sources */,
 				FF35FC552979746E00196881 /* Character.swift in Sources */,

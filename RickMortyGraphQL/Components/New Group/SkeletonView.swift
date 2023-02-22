@@ -45,11 +45,10 @@ class SkeletonView: UIView {
         }
     }
     
-    
-    
     private func startAnimating() {
         
         gradientLayer = CAGradientLayer()
+        gradientLayer.cornerRadius = 18
         
         // using superview bounds to get non zero value
         gradientLayer.frame = superview?.bounds ?? .zero

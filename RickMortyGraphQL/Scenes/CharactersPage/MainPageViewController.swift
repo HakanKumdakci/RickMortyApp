@@ -9,12 +9,6 @@ import Foundation
 import Combine
 import UIKit
 
-enum MainPageSection {
-    case characters
-    case episodes
-    case locations
-}
-
 class MainPageViewController: UIViewController {
     
     lazy private var collectionView: UICollectionView = {
@@ -27,6 +21,7 @@ class MainPageViewController: UIViewController {
         cv.dataSource =  self
         cv.alwaysBounceVertical = true
         cv.register(CharacterCollectionViewCell.self, forCellWithReuseIdentifier: CharacterCollectionViewCell.reuseIdentifier)
+        cv.register(LocationCollectionViewCell.self, forCellWithReuseIdentifier: LocationCollectionViewCell.reuseIdentifier)
         cv.register(MyHeaderView.self, forSupplementaryViewOfKind: "UICollectionElementKindSectionHeader", withReuseIdentifier: ViewConstants.mainPageHeaderReuse)
         return cv
     }()
@@ -50,6 +45,35 @@ class MainPageViewController: UIViewController {
             section.supplementariesFollowContentInsets = false
             section.boundarySupplementaryItems = [firstHeader]
             
+            section.visibleItemsInvalidationHandler = { [weak self] visibleItems, point, environment in
+                switch visibleItems.last?.indexPath.section {
+                    case 0:
+                        if let indexPath = visibleItems.last?.indexPath, let cellViewModelCount = self?.cellViewModels?.count {
+                            if (cellViewModelCount - indexPath.row) < 2 && cellViewModelCount != 826 {
+                                self?.viewModel.makeRequestForCharacters(pageNumber: (cellViewModelCount / 20) + 1)
+                            }
+                        }
+                    case 1:
+                        if let indexPath = visibleItems.last?.indexPath, let locationCellViewModelCount = self?.locationCellViewModels?.count {
+                            if (locationCellViewModelCount - indexPath.row) < 2 && locationCellViewModelCount != 126 {
+                                self?.viewModel.makeRequestForLocations(pageNumber: (locationCellViewModelCount / 20) + 1)
+                            }
+                        }
+                    case 2:
+                        if let indexPath = visibleItems.last?.indexPath, let locationCellViewModelCount = self?.locationCellViewModels?.count {
+                            if (locationCellViewModelCount - indexPath.row) < 2 && locationCellViewModelCount != 126 {
+                                self?.viewModel.makeRequestForLocations(pageNumber: (locationCellViewModelCount / 20) + 1)
+                            }
+                        }
+                    case 3:
+                        return
+                    case .none:
+                        return
+                    case .some(_):
+                        return
+                }
+            }
+            
             return section
         }
         m.register(MyHeaderView.self, forDecorationViewOfKind: "HeaderView")
@@ -57,15 +81,27 @@ class MainPageViewController: UIViewController {
         return m
     }
     
-    private var sections: [MainPageSection] = [.characters, .episodes, .locations]
+    private var sections: [MainPageSection] = MainPageSection.allCases
     
-    private let headerArray : [String] = ["Characters", "Episodes", "Locations"]
+    private let headerArray : [String] = MainPageSection.allCases.map( { $0.desctiption })
     
     private var subscriptions: Set<AnyCancellable> = []
     
     private var viewModel : MainPageViewModel!
     
     var cellViewModels: [CharacterCellViewModel]? {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    var locationCellViewModels: [LocationCellViewModel]? {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    var episodeCellViewModels: [LocationCellViewModel]? {
         didSet {
             self.collectionView.reloadData()
         }
@@ -89,20 +125,19 @@ class MainPageViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.viewModel.makeRequest()
+        self.viewModel.makeRequestForCharacters(pageNumber: 1)
+        self.viewModel.makeRequestForLocations(pageNumber: 1)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpViews()
-        
         setUpBindings()
     }
     
+    
     func setUpBindings() {
-        
         viewModel.characterDataViewModelPublisher
             .sink { [weak self] dataState in
                 guard let self = self else {return }
@@ -110,12 +145,21 @@ class MainPageViewController: UIViewController {
                     case .error(let error):
                         print(error)
                     case .loading:
-                        print()
+                        return
                     case .viewModelData(let viewModels):
-                        self.cellViewModels = viewModels
+                        if self.cellViewModels?.count == 20 {
+                            self.cellViewModels?.append(contentsOf: viewModels)
+                        } else {
+                            self.cellViewModels = viewModels
+                        }
+                    case .locationViewModelData(let viewModels):
+                        if self.locationCellViewModels?.count == 20 {
+                            self.locationCellViewModels?.append(contentsOf: viewModels)
+                        } else {
+                            self.locationCellViewModels = viewModels
+                        }
                 }
-            }
-            .store(in: &subscriptions)
+            }.store(in: &subscriptions)
     }
     
     func setUpViews() {
@@ -139,7 +183,7 @@ extension MainPageViewController: UICollectionViewDataSource, UICollectionViewDe
             case .episodes:
                 return
             case .locations:
-                return
+                viewModel.navigateToLocationPage(coordinator: coordinator, index: indexPath.item)
         }
     }
     
@@ -157,11 +201,11 @@ extension MainPageViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch sections[section] {
             case .characters:
-                return 20
+                return cellViewModels?.count ?? 6
             case .episodes:
                 return 0
             case .locations:
-                return 0
+                return locationCellViewModels?.count ?? 6
         }
     }
     
@@ -176,10 +220,9 @@ extension MainPageViewController: UICollectionViewDataSource, UICollectionViewDe
             case .episodes:
                 return UICollectionViewCell()
             case .locations:
-                return UICollectionViewCell()
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LocationCollectionViewCell.reuseIdentifier, for: indexPath) as! LocationCollectionViewCell
+                cell.viewModel = locationCellViewModels?[indexPath.item]
+                return cell
         }
     }
 }
-
-
-
